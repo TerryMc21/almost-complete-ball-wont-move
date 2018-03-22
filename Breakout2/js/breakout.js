@@ -84,7 +84,7 @@ function drawPaddle() {
 	ctx.fill();
 	ctx.closePath();
 	}
-
+	// call draw
 function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	drawBall();
@@ -105,7 +105,7 @@ function draw() {
 	}else if (y + dy > canvas.height-ballRadius) {
 	//is ball hitting paddle no,yes
 		if(x >paddleX && x < paddleX + paddleWidth) {
-			dy =_dy;
+			dy = dy;
 			
 		}
 		else { 
@@ -125,6 +125,8 @@ function draw() {
 			
 		}
 	}	
+
+	}
 	
 	if(rightPressed && paddleX < canvas.width-paddleWidth) {
 		paddleX +=7;
@@ -134,7 +136,7 @@ function draw() {
 	}	
 		x += dx;
 		y +=dy;
-}
+
 	
 	
 
@@ -175,7 +177,7 @@ function collisionDetection(){
 			var b = bricks[c][r];
 			if(b.status ==1) {
 				if(x > b.x && x < b.x+brickWidth && y > b.y && y <b.y+brickHeight) {
-				dy =_dy;
+				dy = dy;
 				b.status = 0
 				score++;
 				SCORE_SOUND.play();
